@@ -3,7 +3,7 @@ module github.com/numus-digital/dola
 go 1.17
 
 require (
-	github.com/rs/zerolog v1.23.0
+	github.com/rs/zerolog v1.24.0
 	github.com/thrasher-corp/gocryptotrader v0.0.0-20210818083103-3467914ab763
 	go.uber.org/multierr v1.7.0
 )

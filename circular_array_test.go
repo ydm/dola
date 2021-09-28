@@ -3,7 +3,7 @@ package dola_test
 import (
 	"testing"
 
-	"github.com/numus-digital/dola"
+	"github.com/ydm/dola"
 )
 
 //nolint:funlen

@@ -220,16 +220,20 @@ func (bot *Keep) GetActiveOrders(ctx context.Context, exchangeOrName interface{}
 // | Keep: Order submission |
 // +------------------------+
 
-func (bot *Keep) SubmitOrder(ctx context.Context,
+func (bot *Keep) SubmitOrder(
+	ctx context.Context,
 	exchangeOrName interface{},
-	submit order.Submit) (order.SubmitResponse, error) {
+	submit order.Submit,
+) (order.SubmitResponse, error) {
 	return bot.SubmitOrderUD(ctx, exchangeOrName, submit, nil)
 }
 
-func (bot *Keep) SubmitOrderUD(ctx context.Context,
+func (bot *Keep) SubmitOrderUD(
+	ctx context.Context,
 	exchangeOrName interface{},
 	submit order.Submit,
-	userData interface{}) (
+	userData interface{},
+) (
 	order.SubmitResponse, error,
 ) {
 	e := bot.getExchange(exchangeOrName)
@@ -264,9 +268,11 @@ func (bot *Keep) SubmitOrders(ctx context.Context, e exchange.IBotExchange, xs .
 	return wg.Wait()
 }
 
-func (bot *Keep) ModifyOrder(ctx context.Context,
+func (bot *Keep) ModifyOrder(
+	ctx context.Context,
 	exchangeOrName interface{},
-	mod order.Modify) (order.Modify, error) {
+	mod order.Modify,
+) (order.Modify, error) {
 	e := bot.getExchange(exchangeOrName)
 
 	return e.ModifyOrder(ctx, &mod)
@@ -276,10 +282,12 @@ func (bot *Keep) ModifyOrder(ctx context.Context,
 // | Keep: Order cancellation |
 // +--------------------------+
 
-func (bot *Keep) CancelAllOrders(ctx context.Context,
+func (bot *Keep) CancelAllOrders(
+	ctx context.Context,
 	exchangeOrName interface{},
 	assetType asset.Item,
-	pair currency.Pair) (
+	pair currency.Pair,
+) (
 	order.CancelAllResponse, error,
 ) {
 	e := bot.getExchange(exchangeOrName)
@@ -303,10 +311,12 @@ func (bot *Keep) CancelOrder(ctx context.Context, exchangeOrName interface{}, x 
 	return e.CancelOrder(ctx, &x)
 }
 
-func (bot *Keep) CancelOrdersByPrefix(ctx context.Context,
+func (bot *Keep) CancelOrdersByPrefix(
+	ctx context.Context,
 	exchangeOrName interface{},
 	x order.Cancel,
-	prefix string) error {
+	prefix string,
+) error {
 	request := order.GetOrdersRequest{
 		Type:      x.Type,
 		Side:      x.Side,

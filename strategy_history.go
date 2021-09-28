@@ -1,7 +1,6 @@
 package dola
 
 import (
-	"context"
 	"errors"
 	"time"
 
@@ -131,7 +130,7 @@ func (r *HistoryStrategy) AddHistorian(
 // | Strategy |
 // +----------+
 
-func (r *HistoryStrategy) Init(ctx context.Context, k *Keep, e exchange.IBotExchange) error {
+func (r *HistoryStrategy) Init(k *Keep, e exchange.IBotExchange) error {
 	r.onPriceUnits[e.GetName()] = make([]*Historian, 0)
 	r.onOrderUnits[e.GetName()] = make([]*Historian, 0)
 

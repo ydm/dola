@@ -26,7 +26,7 @@ func Stream(ctx context.Context, k *Keep, e exchange.IBotExchange, s Strategy) e
 	}
 
 	// Init strategy for this exchange.
-	if err := s.Init(ctx, k, e); err != nil {
+	if err := s.Init(k, e); err != nil {
 		return err
 	}
 

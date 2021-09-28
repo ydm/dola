@@ -1,7 +1,6 @@
 package dola
 
 import (
-	"context"
 	"sync"
 	"time"
 
@@ -19,7 +18,7 @@ type TickerStrategy struct {
 	tickers  sync.Map
 }
 
-func (s *TickerStrategy) Init(ctx context.Context, k *Keep, e exchange.IBotExchange) error {
+func (s *TickerStrategy) Init(k *Keep, e exchange.IBotExchange) error {
 	ticker := *time.NewTicker(s.Interval)
 
 	if s.TickFunc != nil {

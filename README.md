@@ -46,6 +46,7 @@ type Strategy interface {
 package main
 
 import (
+	"context"
 	"github.com/ydm/dola"
 )
 
@@ -54,7 +55,6 @@ func main() {
 	keep.Root.Add("verbose", dola.VerboseStrategy{})
 	keep.Run(context.Background())
 }
-
 ```
 
 ### Augment config
@@ -65,7 +65,7 @@ keep, _ := dola.NewKeepBuilder().Augment(func (c *config.Config) erro {
 }).Build()
 ```
 
-### Build custom exchanges
+### Use custom exchanges
 
 ```go
 creator := func() (exchange.IBotExchange, error) {
